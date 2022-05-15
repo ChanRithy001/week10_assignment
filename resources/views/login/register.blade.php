@@ -32,7 +32,7 @@
           class="img-fluid" alt="Sample image">
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <form action="{{route('doRegister')}}" method="POST">
+        <form action="{{route('startRegister')}}" method="POST">
         @csrf
         <!-- Name input -->
         <div class="form-outline mb-4">

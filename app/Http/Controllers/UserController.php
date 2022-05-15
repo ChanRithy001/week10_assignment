@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CategoryController;
+use App\Models\CategoryModel;
 
 class UserController extends Controller
 {
@@ -33,7 +34,8 @@ class UserController extends Controller
 
         if (Hash::check($request->get('password'), $queryUser->password)) {
             Auth::login($queryUser);
-            return view('category.index');
+            $allcategories=CategoryModel::all();
+            return view('category.index',compact('allcategories'));
         }
 
         return back()->withErrors([
